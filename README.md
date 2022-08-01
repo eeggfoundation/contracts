@@ -61,4 +61,4 @@ To test (using Metamask) you can deploy the contract to the `localhost` network 
     npm run deploy-local
     ```
 
-3. To interact with the contract, use included [**operator UI**](./ui). Follow the operator UI [README](./ui/README.md).
+3. To interact with the contract, use the [**`operator-ui`**](https://github.com/eeggfoundation/operator-ui) repository.
