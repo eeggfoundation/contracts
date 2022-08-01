@@ -1,9 +1,9 @@
 {
-    "name": "dev",
+    "name": "eeggfoundation/contracts",
     "version": "0.1.0",
-    "description": "eegggallery smart contracts",
-    "author": "eegggallery devs",
-    "homepage": "https://github.com/eegggallery/contracts#readme",
+    "description": "Eegg Token and smart contracts",
+    "author": "Eegg Foundation devs",
+    "homepage": "https://eegg.foundation",
     "license": "MIT",
     "scripts": {
         "build": "npx hardhat compile",
@@ -14,10 +14,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/eegggallery/contracts.git"
+        "url": "git+https://github.com/eeggfoundation/contracts.git"
     },
     "bugs": {
-        "url": "https://github.com/eegggallery/contract/issues"
+        "url": "https://github.com/eeggfoundation/contract/issues"
     },
     "devDependencies": {
         "@nomicfoundation/hardhat-network-helpers": "^1.0.3",
