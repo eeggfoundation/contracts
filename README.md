@@ -1,4 +1,11 @@
-# eegg.gallery Contracts
+<p>
+    <picture>
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eeggfoundation/.github/main/content/eegg-logo-light.svg">
+        <img alt="Eegg" src="https://raw.githubusercontent.com/eeggfoundation/.github/main/content/eegg-logo-dark.svg" width="auto" height="60">
+    </picture>
+</p>
+
+# Eegg Foundation Contracts
 
 ## EEGG token
 
