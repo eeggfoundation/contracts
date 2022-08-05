@@ -6,10 +6,9 @@ async function main() {
     console.log('Deploying contracts with account:', deployer.address)
     console.log('Account balance:', (await deployer.getBalance()).toString())
 
-    const tokenFactory = await ethers.getContractFactory('EeggToken')
-    const token = await tokenFactory.deploy()
-
-    console.log('Token address:', token.address)
+    const eeggTokenFactory = await ethers.getContractFactory('EeggToken')
+    const eeggToken = await eeggTokenFactory.deploy()
+    console.log('Eegg Token address:', eeggToken.address)
 }
 
 main()

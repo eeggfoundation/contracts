@@ -7,7 +7,6 @@
     "license": "MIT",
     "scripts": {
         "build": "npx hardhat compile",
-        "deploy-local": "npx hardhat run scripts/deploy.ts --network localhost",
         "gas": "REPORT_GAS=true npx hardhat test",
         "node": "npx hardhat node",
         "test": "npx hardhat test"
