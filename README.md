@@ -19,6 +19,7 @@ To prevent accidental burns, the token does not allow transfers to the contract 
 
 - Deployments:
   - Ethereum Mainnet [EeggToken 1.0](./contracts/EeggToken.sol): [0x??](https://etherscan.io/address/0x??)
+  - Goerli Testnet [EeggToken 1.0](./contracts/EeggToken.sol): [0xa56fdf24548c1e2122b7117316130f84aa00A990](https://goerli.etherscan.io/token/0xa56fdf24548c1e2122b7117316130f84aa00A990)
 - Decimals: 18
 - Name: Eegg Token
 - Symbol: EEGG
