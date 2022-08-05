@@ -54,7 +54,7 @@ npm run build
 
 ### Deploy to localhost
 
-To test (using Metamask) you can deploy the contract to the `localhost` network following these steps:
+To test you can deploy the contract to the `localhost` network following these steps:
 
 1. Start a local node:
 
@@ -65,7 +65,45 @@ To test (using Metamask) you can deploy the contract to the `localhost` network 
 2. In another terminal deploy the contract to the `localhost` network:
 
     ```sh
-    npm run deploy-local
+    npx hardhat run scripts/deploy.ts --network localhost
     ```
 
-3. To interact with the contract, use the [**`operator-ui`**](https://github.com/eeggfoundation/operator-ui) repository.
+## Deployment
+
+The deployment `url` and `private key` are securely stored in an environment file `.env`.
+The repository includes an `.env.example` example.
+
+The HardHat `hardhat.config.ts` resolves the `.env` automatically. So, there is nothing more to do, just edit your `.env`.
+
+Supported networks: [[**Goerli Testnet**](https://goerli.net/), [**Mainnet**](https://ethereum.org/en/developers/docs/networks/#ethereum-mainnet)]
+
+> You can learn more about other testnets and find links to their faucets on the [ethereum.org](https://ethereum.org/en/developers/docs/networks/#ethereum-testnets) site.
+
+For `Goerli Testnet`, for example, your `.env` file should look like this:
+
+```sh
+GOERLI_API_URL=https://eth-goerli.g.alchemy.com/v2/<your api key>
+GOERLI_PRIVATE_KEY=<your private key>
+```
+
+> We're using [Alchemy](https://alchemy.com), but pointing url to any Ethereum node or gateway would work. Go grab your ALCHEMY_API_KEY and come back.
+
+Compile the Contract using:
+
+```sh
+npm run build
+```
+
+Deploy the Contract using:
+
+```sh
+npx hardhat run scripts/deploy.js --network goerli
+```
+
+The script will output the **Contract Address**. Copy and paste this address to **save it** somewhere, **you don't want to lose it**.
+
+You can check the Contract Address on [Goerli etherscan](https://goerli.etherscan.io/) to see that it has been deployed successfully.
+
+## Contracts interaction
+
+To interact with the contract, use the [`operator-ui`](https://github.com/eeggfoundation/operator-ui) repository.
