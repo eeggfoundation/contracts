@@ -76,7 +76,7 @@ The repository includes an `.env.example` example.
 
 The HardHat `hardhat.config.ts` resolves the `.env` automatically. So, there is nothing more to do, just edit your `.env`.
 
-Supported networks: [[**Goerli Testnet**](https://goerli.net/), [**Mainnet**](https://ethereum.org/en/developers/docs/networks/#ethereum-mainnet)]
+Supported networks: [[**Goerli Testnet**](https://goerli.net/), [**Ethereum Mainnet**](https://ethereum.org/en/developers/docs/networks/#ethereum-mainnet)]
 
 > You can learn more about other testnets and find links to their faucets on the [ethereum.org](https://ethereum.org/en/developers/docs/networks/#ethereum-testnets) site.
 

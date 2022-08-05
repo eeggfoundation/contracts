@@ -5,7 +5,7 @@ import 'hardhat-gas-reporter'
 
 require('dotenv').config()
 
-const configurableNetworks = ['goerli', 'mainnet']
+const configurableNetworks = ['goerli', 'ethereum']
 
 var networks:NetworksUserConfig = {}
 
