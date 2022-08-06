@@ -37,7 +37,7 @@ contract EeggToken is IERC20, AccessControl {
 
     constructor() {
         _grantRole(ROLE_ADMIN, msg.sender);
-        _mint(msg.sender, 1_000_000 * 10 ** decimals);
+        _mint(msg.sender, 100_000_000 * 10 ** decimals);
     }
 
     function balanceOf(address _account) public view override returns (uint256) {
