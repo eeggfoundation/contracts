@@ -13,8 +13,6 @@ configurableNetworks.forEach((net) => {
     const url = `${net.toUpperCase()}_API_URL`
     const key = `${net.toUpperCase()}_PRIVATE_KEY`
 
-    console.log(url, key)
-
     if (process.env[url] && process.env[key]) {
         networks[net] = {
             url: url,
