@@ -78,4 +78,23 @@ describe('abstracts.Pauseable', function() {
             })
         })
     })
+
+    describe('Events', function() {
+        it('emits Paused', async function() {
+            const { hardhatContract, owner } = await loadFixture(deployContractFixture)
+
+            await expect(hardhatContract.pauseInternal())
+                .to.emit(hardhatContract, 'Paused')
+                .withArgs(owner.address)
+        })
+
+        it('emits Unpaused', async function() {
+            const { hardhatContract, owner } = await loadFixture(deployContractFixture)
+
+            await hardhatContract.pauseInternal()
+            await expect(hardhatContract.unpauseInternal())
+                .to.emit(hardhatContract, 'Unpaused')
+                .withArgs(owner.address)
+        })
+    })
 })
