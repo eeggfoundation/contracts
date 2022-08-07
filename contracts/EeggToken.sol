@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "./interfaces/IERC20.sol";
-import "./abstracts/AccessControl.sol";
+import "./abstracts/Roleable.sol";
 
 /**
  * @title Eegg Gallery Token contract
@@ -16,7 +16,7 @@ import "./abstracts/AccessControl.sol";
  * returning `false` on failure. This behavior does not conflict with the
  * expectations of ERC20 applications.
  */
-contract EeggToken is IERC20, AccessControl {
+contract EeggToken is IERC20, Roleable {
     mapping(address => uint256) private balances;
     mapping(address => mapping(address => uint256)) private allowances;
 

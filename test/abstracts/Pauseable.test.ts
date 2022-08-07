@@ -2,9 +2,9 @@ import { expect } from 'chai'
 import { ethers } from 'hardhat'
 import { loadFixture } from '@nomicfoundation/hardhat-network-helpers'
 
-describe('abstracts.Pausable', function() {
+describe('abstracts.Pauseable', function() {
     async function deployContractFixture() {
-        const contractFactory = await ethers.getContractFactory('PausableMock')
+        const contractFactory = await ethers.getContractFactory('PauseableMock')
         const [owner, addr1, addr2] = await ethers.getSigners()
 
         const hardhatContract = await contractFactory.deploy()

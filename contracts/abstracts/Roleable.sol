@@ -38,7 +38,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
  * }
  * ```
  */
-abstract contract AccessControl {
+abstract contract Roleable {
     mapping(bytes32 => mapping(address => bool)) private roles;
     uint256 private roleAdminTotalGrants = 0;
 

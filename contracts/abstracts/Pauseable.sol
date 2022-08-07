@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 /**
  * @dev Contract module which allows to implement an emergency stop mechanism.
  */
-abstract contract Pausable {
+abstract contract Pauseable {
     bool private paused;
 
     event Paused(address account);

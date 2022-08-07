@@ -2,9 +2,9 @@ import { expect } from 'chai'
 import { ethers } from 'hardhat'
 import { loadFixture } from '@nomicfoundation/hardhat-network-helpers'
 
-describe('abstracts.AccessControl', function() {
+describe('abstracts.Roleable', function() {
     async function deployContractFixture() {
-        const contractFactory = await ethers.getContractFactory('AccessControlMock')
+        const contractFactory = await ethers.getContractFactory('RoleableMock')
         const [owner, addr1, addr2] = await ethers.getSigners()
 
         const hardhatContract = await contractFactory.deploy()
@@ -17,13 +17,13 @@ describe('abstracts.AccessControl', function() {
         it('revokes non admin account to {grantRole}', async function() {
             const { hardhatContract, owner, addr1, addr2 } = await loadFixture(deployContractFixture)
 
-            await expect(hardhatContract.connect(addr1).grantRole(hardhatContract.ROLE_ADMIN(), addr2.address)).to.be.reverted;
+            await expect(hardhatContract.connect(addr1).grantRole(hardhatContract.ROLE_ADMIN(), addr2.address)).to.be.reverted
         })
 
         it('revokes non admin accounts to {revokeRole}', async function() {
             const { hardhatContract, owner, addr1, addr2 } = await loadFixture(deployContractFixture)
 
-            await expect(hardhatContract.connect(addr1).revokeRole(hardhatContract.ROLE_ADMIN(), addr2.address)).to.be.reverted;
+            await expect(hardhatContract.connect(addr1).revokeRole(hardhatContract.ROLE_ADMIN(), addr2.address)).to.be.reverted
         })
     })
 
