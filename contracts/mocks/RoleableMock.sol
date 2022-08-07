@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./../abstracts/AccessControl.sol";
+import "./../abstracts/Roleable.sol";
 
 /**
- * @dev AccessControl mock exposes `private` and `internal` functions publicly to allow testing.
+ * @dev RoleableMock exposes `private` and `internal` functions publicly to allow testing.
  */
-contract AccessControlMock is AccessControl {
+contract RoleableMock is Roleable {
     bytes32 public constant ROLE_FOO = keccak256("ROLE_FOO");
 
     constructor() {

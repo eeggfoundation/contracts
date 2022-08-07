@@ -289,7 +289,74 @@ describe('EeggToken', function() {
         })
     })
 
-    describe('AccessControl', function() {
+    describe('Pauseable', function() {
+        it('pause() rejects non admin sender', async function() {
+            const { hardhatToken, addr1 } = await loadFixture(deployTokenFixture)
+
+            await expect(hardhatToken.connect(addr1).pause()).to.be.reverted;
+        })
+
+        it('unpause() rejects non admin sender', async function() {
+            const { hardhatToken, addr1 } = await loadFixture(deployTokenFixture)
+
+            await expect(hardhatToken.connect(addr1).unpause()).to.be.reverted;
+        })
+
+        it('pause() accepts admin sender', async function() {
+            const { hardhatToken, addr1 } = await loadFixture(deployTokenFixture)
+
+            await expect(hardhatToken.pause()).not.be.reverted;
+            expect(await hardhatToken.isPaused()).to.equal(true);
+        })
+
+        it('unpause() accepts non admin sender', async function() {
+            const { hardhatToken, addr1 } = await loadFixture(deployTokenFixture)
+
+            await hardhatToken.pause()
+            await expect(hardhatToken.unpause()).not.be.reverted;
+            expect(await hardhatToken.isPaused()).to.equal(false);
+        })
+
+        describe('paused', function() {
+            it('rejects approve', async function() {
+                const { hardhatToken, addr1 } = await loadFixture(deployTokenFixture)
+
+                await expect(hardhatToken.pause()).not.be.rejected
+                await expect(hardhatToken.approve(addr1.address, 1)).to.be.rejected
+            })
+
+            it('rejectes transfer', async function() {
+                const { hardhatToken, addr1 } = await loadFixture(deployTokenFixture)
+
+                await expect(hardhatToken.pause()).not.be.rejected
+                await expect(hardhatToken.transfer(addr1.address, 1)).to.be.rejected
+            })
+
+            it('rejectes transferFrom', async function() {
+                const { hardhatToken, owner, addr1, addr2 } = await loadFixture(deployTokenFixture)
+
+                await expect(hardhatToken.approve(addr1.address, 1)).not.be.rejected
+                await expect(hardhatToken.pause()).not.be.rejected
+                await expect(hardhatToken.connect(addr1).transferFrom(owner.address, addr2.address, 1)).to.be.rejected
+            })
+
+            it('rejectes mint', async function() {
+                const { hardhatToken, addr1 } = await loadFixture(deployTokenFixture)
+
+                await expect(hardhatToken.pause()).not.be.rejected
+                await expect(hardhatToken.mint(addr1.address, 42)).to.be.rejected
+            })
+
+            it('rejectes burn', async function() {
+                const { hardhatToken, owner } = await loadFixture(deployTokenFixture)
+
+                await expect(hardhatToken.pause()).not.be.rejected
+                await expect(hardhatToken.burn(owner.address, 42)).to.be.rejected
+            })
+        })
+    })
+
+    describe('Roleable', function() {
         it('grants ROLE_ADMIN to the owner', async function() {
             const { hardhatToken, owner } = await loadFixture(deployTokenFixture)
 
