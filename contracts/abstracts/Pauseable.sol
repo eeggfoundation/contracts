@@ -21,7 +21,6 @@ abstract contract Pauseable {
      * @dev Modifier to make a function callable only when the contract is not paused.
      *
      * Requirements:
-     *
      * - The contract must not be paused.
      */
     modifier whenNotPaused() {
@@ -33,7 +32,6 @@ abstract contract Pauseable {
      * @dev Modifier to make a function callable only when the contract is paused.
      *
      * Requirements:
-     *
      * - The contract must be paused.
      */
     modifier whenPaused() {

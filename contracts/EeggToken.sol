@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "./interfaces/IERC20.sol";
+import "./abstracts/Pauseable.sol";
 import "./abstracts/Roleable.sol";
 
 /**
@@ -16,7 +17,7 @@ import "./abstracts/Roleable.sol";
  * returning `false` on failure. This behavior does not conflict with the
  * expectations of ERC20 applications.
  */
-contract EeggToken is IERC20, Roleable {
+contract EeggToken is IERC20, Pauseable, Roleable {
     mapping(address => uint256) private balances;
     mapping(address => mapping(address => uint256)) private allowances;
 
@@ -48,18 +49,18 @@ contract EeggToken is IERC20, Roleable {
         return allowances[_owner][_spender];
     }
 
-    function approve(address _spender, uint256 _amount) public override returns (bool) {
+    function approve(address _spender, uint256 _amount) public override whenNotPaused returns (bool) {
         address owner = msg.sender;
         _approve(owner, _spender, _amount);
         return true;
     }
 
-    function transfer(address _recipient, uint256 _amount) public override returns (bool) {
+    function transfer(address _recipient, uint256 _amount) public override whenNotPaused returns (bool) {
         _transfer(msg.sender, _recipient, _amount);
         return true;
     }
 
-    function transferFrom(address _owner, address _recipient, uint256 _amount) public override returns (bool) {
+    function transferFrom(address _owner, address _recipient, uint256 _amount) public override whenNotPaused returns (bool) {
         _spendAllowance(_owner, msg.sender, _amount);
         _transfer(_owner, _recipient, _amount);
         return true;
@@ -67,18 +68,46 @@ contract EeggToken is IERC20, Roleable {
 
     /**
      * Mints given `_amount` of tokens to the given `_account` address.
-     * @notice The method is allowed only to address with ROLE_ADMIN granted.
+     *
+     * Requirements:
+     * - The sender must have ROLE_ADMIN granted.
+     * - The contract must not be paused.
      */
-    function mint(address _account, uint256 _amount) public onlyAdmin() {
+    function mint(address _account, uint256 _amount) public whenNotPaused onlyAdmin() {
         _mint(_account, _amount);
     }
 
     /**
      * Burns given `_amount` of tokens from the given `_account` address.
-     * @notice The method is allowed only to address with ROLE_ADMIN granted.
+     *
+     * Requirements:
+     * - The sender must have ROLE_ADMIN granted.
+     * - The contract must not be paused.
      */
-    function burn(address _address, uint256 _amount) public onlyAdmin() {
+    function burn(address _address, uint256 _amount) public whenNotPaused onlyAdmin() {
         _burn(_address, _amount);
+    }
+
+    /**
+     * Pauses the Token functionality.
+     *
+     * Requirements:
+     * - The sender must have ROLE_ADMIN granted.
+     * - The contract must not be paused.
+     */
+    function pause() public onlyAdmin() {
+        _pause();
+    }
+
+    /**
+     * Unpauses the Token functionality.
+     *
+     * Requirements:
+     * - The sender must have ROLE_ADMIN granted.
+     * - The contract must be paused.
+     */
+    function unpause() public onlyAdmin() {
+        _unpause();
     }
 
     /**
