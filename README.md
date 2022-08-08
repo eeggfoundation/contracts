@@ -53,6 +53,14 @@ npm run gas
 npm run build
 ```
 
+### Build merged Solidity contracts
+
+To merge all imports and produce standalone `.sol` files, run:
+
+```sh
+npm run merge-contracts
+```
+
 ### Deploy to localhost
 
 To test you can deploy the contract to the `localhost` network following these steps:
