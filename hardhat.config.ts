@@ -15,7 +15,7 @@ configurableNetworks.forEach((net) => {
 
     if (process.env[url] && process.env[key]) {
         networks[net] = {
-            url: url,
+            url: process.env[url],
             accounts: [`0x${process.env[key]}`]
         }
     }
