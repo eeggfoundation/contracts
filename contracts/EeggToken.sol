@@ -29,7 +29,7 @@ contract EeggToken is Initializable, ERC20Upgradeable, PausableUpgradeable, Acce
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
-        _mint(msg.sender, 100000000 * 10 ** decimals());
+        _mint(msg.sender, 100_000_000 * 10 ** decimals());
         _grantRole(UPGRADER_ROLE, msg.sender);
     }
 
