@@ -4,6 +4,7 @@ import '@nomicfoundation/hardhat-toolbox'
 import 'hardhat-gas-reporter'
 
 require('dotenv').config()
+require('@openzeppelin/hardhat-upgrades')
 
 const configurableNetworks = ['goerli', 'ethereum']
 
@@ -22,7 +23,15 @@ configurableNetworks.forEach((net) => {
 })
 
 const config: HardhatUserConfig = {
-    solidity: '0.8.9',
+    solidity: {
+        version: '0.8.9',
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 200,
+            },
+        },
+    },
     gasReporter: {
         enabled: (process.env.REPORT_GAS) ? true : false,
     },

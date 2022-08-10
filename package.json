@@ -8,7 +8,7 @@
     "scripts": {
         "build": "npx hardhat compile",
         "gas": "REPORT_GAS=true npx hardhat test",
-        "merge-contracts": "sol-merger \"./contracts/*.sol\" ./build-merged",
+        "merge-contracts": "sol-merger --export-plugin SPDXLicenseRemovePlugin \"./contracts/*.sol\" ./build-merged",
         "node": "npx hardhat node",
         "test": "npx hardhat test"
     },
@@ -22,8 +22,11 @@
     "devDependencies": {
         "@nomicfoundation/hardhat-network-helpers": "^1.0.3",
         "@nomicfoundation/hardhat-toolbox": "^1.0.2",
-        "@openzeppelin/contracts": "^4.7.2",
+        "@nomiclabs/hardhat-ethers": "^2.1.0",
+        "@openzeppelin/contracts-upgradeable": "^4.7.2",
+        "@openzeppelin/hardhat-upgrades": "^1.20.0",
         "dotenv": "^16.0.1",
+        "ethers": "^5.6.9",
         "hardhat": "^2.10.1",
         "hardhat-gas-reporter": "^1.0.8",
         "sol-merger": "^4.1.1",
