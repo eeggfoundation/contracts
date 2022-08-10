@@ -1,5 +1,5 @@
 // @see: https://docs.openzeppelin.com/upgrades-plugins/1.x/hardhat-upgrades
-const { ethers, upgrades } = require("hardhat");
+const { ethers, upgrades } = require("hardhat")
 
 async function main() {
     const [deployer] = await ethers.getSigners()
