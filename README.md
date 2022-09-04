@@ -1,3 +1,5 @@
+# Eegg Foundation Contracts
+
 <p>
     <picture>
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eeggfoundation/.github/main/content/eegg-logo-light.svg">
@@ -5,21 +7,19 @@
     </picture>
 </p>
 
-# Eegg Foundation Contracts
-
 ## EEGG token
 
 The EEGG token is an [EIP20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md) token with additional `AccessControl` and `Mint/Burn` functionality.
 
-The total supply of the token is 1_000_000, and each token is divisible up to 18 decimal places.
+The total supply of the token is 100_000_000, and each token is divisible up to 18 decimal places.
 
 To prevent accidental burns, the token does not allow transfers to the contract itself and to `0x00`.
 
 ### Details
 
 - Deployments:
-  - Ethereum Mainnet [EeggToken 1.0](./contracts/EeggToken.sol): [0x??](https://etherscan.io/address/0x??)
-  - Goerli Testnet [EeggToken 1.0](./contracts/EeggToken.sol): [0xa56fdf24548c1e2122b7117316130f84aa00A990](https://goerli.etherscan.io/token/0xa56fdf24548c1e2122b7117316130f84aa00A990)
+  - [EeggToken 1.0](./contracts/EeggToken.sol): [0xfBe4E92c664cd094DEa9Dcf60287676f8938eb10](https://etherscan.io/token/0xfBe4E92c664cd094DEa9Dcf60287676f8938eb10)
+  - [EeggGovernor 1.0](./contracts/EeggGovernor.sol): [0x8D007EcC10FC1a6cEEd7f851Ca88B421889e3957](https://etherscan.io/token/0x8D007EcC10FC1a6cEEd7f851Ca88B421889e3957)
 - Decimals: 18
 - Name: Eegg Token
 - Symbol: EEGG
@@ -106,7 +106,7 @@ npm run build
 Deploy the Contract using:
 
 ```sh
-npx hardhat run scripts/deploy.js --network goerli
+npx hardhat run scripts/deploy.ts --network goerli
 ```
 
 The script will output the **Contract Address**. Copy and paste this address to **save it** somewhere, **you don't want to lose it**.
