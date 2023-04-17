@@ -29,7 +29,7 @@
         "ethers": "^5.7.2",
         "hardhat": "^2.13.1",
         "hardhat-gas-reporter": "^1.0.8",
-        "sol-merger": "^4.3.0",
+        "sol-merger": "^4.4.0",
         "typescript": "^5.0.4"
     }
 }
