@@ -30,6 +30,6 @@
         "hardhat": "^2.14.0",
         "hardhat-gas-reporter": "^1.0.8",
         "sol-merger": "^4.4.0",
-        "typescript": "^5.0.4"
+        "typescript": "^5.1.3"
     }
 }
