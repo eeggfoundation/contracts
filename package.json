@@ -27,7 +27,7 @@
         "@openzeppelin/hardhat-upgrades": "^1.22.1",
         "dotenv": "^16.0.3",
         "ethers": "^5.7.2",
-        "hardhat": "^2.14.0",
+        "hardhat": "^2.16.1",
         "hardhat-gas-reporter": "^1.0.8",
         "sol-merger": "^4.4.0",
         "typescript": "^5.0.4"
